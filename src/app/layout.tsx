@@ -8,7 +8,8 @@ const RootLayout = ({
 }: { children: React.ReactNode }) => {
   return (
     <html lang="en" className={rubik.variable}>
-      <body>
+      <body >
+        
         <Providers>
           {children}
         </Providers>

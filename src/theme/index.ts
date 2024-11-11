@@ -10,7 +10,7 @@ const config: ThemeConfig = {
 export const theme = extendTheme({
     config,
     fonts: {
-        heading: 'var(--font-rubik',
+        heading: 'var(--font-rubik)',
         body: 'var(--font-rubik)',
     },
     colors: {
@@ -29,10 +29,20 @@ export const theme = extendTheme({
             }
         }
     },
+    components: {
+        Switch: {
+            baseStyle: {
+                track: {
+                        bg: '#A729F5'
+                }
+            }
+        }
+    },
     styles: {
-        global: (props: any) => ({
+        global: (props: { colorMode: "light" | "dark" }) => ({
             body: {
-                bg: props.colorMode === 'dark' ? 'brand.gray.900' : 'white'
+                bg: props.colorMode === 'dark' ? 'brand.gray.900' : 'white',
+                color:props.colorMode=== 'dark'?'white': 'brand.gray.900'
             }
         })
     }
