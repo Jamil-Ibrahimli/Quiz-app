@@ -19,7 +19,7 @@ export const SubjectList = () => {
   ];
 
   return (
-    <Grid  w="full" maxW="md" gap="1.5rem">
+    <Grid  w="100%"  gap="1rem" >
       {subjects.map(({ type, iconPath }) => (
         <SubjectCard
           key={type}
@@ -28,8 +28,20 @@ export const SubjectList = () => {
             <Image 
               src={iconPath} 
               alt={`${type} icon`}
-              width='3.5rem'
-              height='3.5rem'
+              w={{
+                base: '2.5rem',
+                sm: '2.5rem',
+                md: '3rem',
+                lg: '3.5rem',
+                xl: '3.5rem'
+            }}
+            h={{
+                base: '2.5rem',
+                sm: '2.5rem',
+                md: '3rem',
+                lg: '3.5rem',
+                xl: '3.5rem'
+            }}
             />
           }
           isSelected={selectedSubject === type}

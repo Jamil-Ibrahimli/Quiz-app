@@ -1,8 +1,6 @@
 import Providers from "@/components/Providers";
 import { rubik } from '../fonts';
-
 import React from 'react'
-
 const RootLayout = ({
   children,
 }: { children: React.ReactNode }) => {

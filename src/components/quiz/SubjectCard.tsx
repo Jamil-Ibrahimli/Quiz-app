@@ -9,42 +9,110 @@ interface SubjectCardProps {
 }
 
 const SubjectCard = ({ subject, icon, isSelected, onClick }: SubjectCardProps) => {
-
     const bgColor = useColorModeValue('white', 'brand.gray.900')
     const borderColor = isSelected ? 'brand.purple.500' : 'brand.gray.100';
-    const {colorMode}=useColorMode()
+    const { colorMode } = useColorMode()
 
     return (
         <Box
             as="button"
             w="full"
             onClick={onClick}
-            transition={'all 0.5s'}
+            transition="all 0.3s ease-in-out"
         >
             <Flex
                 align="center"
-                borderRadius="0.8rem"
+                borderRadius={{ base: "0.8rem", sm: "1rem", md: "1.2rem", lg: "1.4rem", xl: "1.2rem" }}
                 boxShadow="0px 4px 18px rgba(0, 0, 0, 0.2)"
-                _hover={{ boxShadow: "0px 4px 18px rgba(150, 75, 204, 0.58)" }}
-                w='35rem'
-                p='1.2rem'
-                gap='2rem'
+                
+                _hover={{
+                    boxShadow: "0px 4px 18px rgba(150, 75, 204, 0.58)",
+                    transform: "translateY(-3px)"
+                }}
+                w={{
+                    base: "100%",    // 320px
+                    sm: "100%",      // 375px
+                    md: "100%",     // 768px
+                    lg: "100%",     // 1024px
+                    xl: "100%"      // 1440px
+                }}
+                maxW={{
+                    base: "100%",
+                    sm: "100%",
+                    md: "100%",
+                    lg: "100%" // Match parent container
+                }}
+                py={{
+                    base: "1.2rem",
+                    sm: "1.3rem",
+                    md: "1.4rem",
+                    lg: "1.4rem",
+                    xl: "1.4rem"
+                }}
+                px={{
+                    base: "1.2rem",
+                    sm: "1.3rem",
+                    md: "1.4rem",
+                    lg: "1.6rem",
+                    xl: "1.6rem"
+                }}
+                gap={{
+                    base: "1rem",
+                    sm: "1.2rem",
+                    md: "1.4rem",
+                    lg: "1.6rem",
+                    xl: "2rem"
+                }}
                 bg={colorMode === 'dark' ? 'gray.700' : 'white'}
+                transition="all 0.2s ease-in-out"
+                position="relative"
+             
             >
-                <Box mr={4} w='3.5rem' h='3.5rem'>
+                <Box
+                    w={{
+                        base: '2.5rem',
+                        sm: '2.5rem',
+                        md: '3rem',
+                        lg: '3.5rem',
+                        xl: '3.5rem'
+                    }}
+                    h={{
+                        base: '2.5rem',
+                        sm: '2.5rem',
+                        md: '3rem',
+                        lg: '3.5rem',
+                        xl: '3.5rem'
+                    }}
+                    display='flex'
+                    alignItems='center'
+                    justifyContent='center'
+                    
+                >
                     {icon}
                 </Box>
-                <Text fontSize='1.8rem'
+                <Text
+                    fontSize={{
+                        base: '1rem',
+                        sm: '1.2rem',
+                        md: '1.4rem',
+                        lg: '1.6rem',
+                        xl: '1.8rem'
+                    }}
                     fontWeight='500'
-                    lineHeight='1.8rem'
+                    lineHeight={{
+                        base: '1rem',
+                        sm: '1.2rem',
+                        md: '1.4rem',
+                        lg: '1.6rem',
+                        xl: '1.8rem'
+                    }}
                     color={colorMode === 'dark' ? 'white' : 'gray.800'}
-
                 >
                     {subject}
                 </Text>
             </Flex>
-        </Box >
+        </Box>
     )
 }
 
-export default SubjectCard
+export default SubjectCard;

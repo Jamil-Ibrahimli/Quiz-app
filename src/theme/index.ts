@@ -1,13 +1,15 @@
 'use client';
 
-import { extendTheme, type ThemeConfig } from '@chakra-ui/react';
+import { extendTheme, transition, type ThemeConfig } from '@chakra-ui/react';
 
 const config: ThemeConfig = {
     initialColorMode: 'light',
-    useSystemColorMode: false
+    useSystemColorMode: false,
+    disableTransitionOnChange: false 
 }
 
 export const theme = extendTheme({
+    
     config,
     fonts: {
         heading: 'var(--font-rubik)',
@@ -33,7 +35,7 @@ export const theme = extendTheme({
         Switch: {
             baseStyle: {
                 track: {
-                        bg: '#A729F5'
+                    bg: '#A729F5'
                 }
             }
         }
@@ -42,8 +44,10 @@ export const theme = extendTheme({
         global: (props: { colorMode: "light" | "dark" }) => ({
             body: {
                 bg: props.colorMode === 'dark' ? 'brand.gray.900' : 'white',
-                color:props.colorMode=== 'dark'?'white': 'brand.gray.900'
+                color: props.colorMode === 'dark' ? 'white' : 'brand.gray.900',
+                
             }
         })
-    }
+    },
+
 })
