@@ -22,9 +22,6 @@ const ThemeToggle = () => {
     return (
         <>
             <Flex
-                position="absolute"
-                top='0'
-                right={{ base: '1rem', md: '2rem', lg: '2.5rem' }}
                 gap={{ base: '0.8rem', md: '1rem', lg: '1.2rem' }}
                 align="center"
                

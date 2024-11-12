@@ -7,10 +7,9 @@ import { RootState } from '@/store';
 import { QuizSubject } from '@/types/quiz';
 
 export const SubjectList = () => {
-  const dispatch = useDispatch();
+ 
   const selectedSubject = useSelector((state: RootState) => state.quizReducer.selectedSubject);
-
-  
+ 
   const subjects: { type: QuizSubject; iconPath: string }[] = [
     { type: 'HTML', iconPath: '/icons/html-icon.png' },
     { type: 'CSS', iconPath: '/icons/css-icon.png' },
@@ -45,7 +44,7 @@ export const SubjectList = () => {
             />
           }
           isSelected={selectedSubject === type}
-          onClick={() => dispatch(setSelectedSubject(type))}
+          
         />
       ))}
     </Grid>

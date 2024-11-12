@@ -1,46 +1,53 @@
 import { QuizSubject } from "@/types/quiz";
 import { Box, Flex, useColorModeValue, Text, useColorMode } from "@chakra-ui/react";
+import { useDispatch } from "react-redux";
+import { setSelectedSubject } from "@/store/slices/quizSlice";
 
 interface SubjectCardProps {
     subject: QuizSubject;
     icon: React.ReactNode;
     isSelected: boolean;
-    onClick: () => void;
+    
 }
 
-const SubjectCard = ({ subject, icon, isSelected, onClick }: SubjectCardProps) => {
+const SubjectCard = ({ subject, icon, isSelected }: SubjectCardProps) => {
     const bgColor = useColorModeValue('white', 'brand.gray.900')
     const borderColor = isSelected ? 'brand.purple.500' : 'brand.gray.100';
     const { colorMode } = useColorMode()
+    const dispatch = useDispatch()
+
+    const handleClick = () => {
+        dispatch(setSelectedSubject(subject));
+    };
 
     return (
         <Box
             as="button"
             w="full"
-            onClick={onClick}
+            onClick={handleClick}
             transition="all 0.3s ease-in-out"
         >
             <Flex
                 align="center"
                 borderRadius={{ base: "0.8rem", sm: "1rem", md: "1.2rem", lg: "1.4rem", xl: "1.2rem" }}
                 boxShadow="0px 4px 18px rgba(0, 0, 0, 0.2)"
-                
+
                 _hover={{
                     boxShadow: "0px 4px 18px rgba(150, 75, 204, 0.58)",
                     transform: "translateY(-3px)"
                 }}
                 w={{
-                    base: "100%",    // 320px
-                    sm: "100%",      // 375px
-                    md: "100%",     // 768px
-                    lg: "100%",     // 1024px
-                    xl: "100%"      // 1440px
+                    base: "100%",
+                    sm: "100%",
+                    md: "100%",
+                    lg: "100%",
+                    xl: "100%"
                 }}
                 maxW={{
                     base: "100%",
                     sm: "100%",
                     md: "100%",
-                    lg: "100%" // Match parent container
+                    lg: "100%"
                 }}
                 py={{
                     base: "1.2rem",
@@ -66,7 +73,7 @@ const SubjectCard = ({ subject, icon, isSelected, onClick }: SubjectCardProps) =
                 bg={colorMode === 'dark' ? 'gray.700' : 'white'}
                 transition="all 0.2s ease-in-out"
                 position="relative"
-             
+
             >
                 <Box
                     w={{
@@ -86,7 +93,7 @@ const SubjectCard = ({ subject, icon, isSelected, onClick }: SubjectCardProps) =
                     display='flex'
                     alignItems='center'
                     justifyContent='center'
-                    
+
                 >
                     {icon}
                 </Box>

@@ -11,3 +11,16 @@ export interface QuizState {
     isQuizCompleted: boolean;
 
 }
+
+export type AnswerLetter = 'A' | 'B' | 'C' | 'D';
+
+export interface Answer {
+    letter: AnswerLetter;
+    text: string;
+}
+
+export interface Question {
+    question: string;
+    answers: Answer[];
+    correctAnswer: AnswerLetter;
+}

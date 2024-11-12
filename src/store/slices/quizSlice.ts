@@ -16,18 +16,20 @@ const quizSlice = createSlice({
     reducers: {
         setSelectedSubject: (state, action: PayloadAction<QuizSubject>) => {
             state.selectedSubject = action.payload
-        },
-        toggleTheme: (state) => {
-            state.isDarkMode = !state.isDarkMode
-        },
-        startQuiz: (state) => {
             state.isQuizStarted = true;
             state.isQuizCompleted = false;
             state.currentQuestion = 0;
             state.score = 0;
         },
+        toggleTheme: (state) => {
+            state.isDarkMode = !state.isDarkMode
+        },
         nextQuestion: (state) => {
-            state.currentQuestion += 1;
+            if (state.currentQuestion < 9) {
+                state.currentQuestion += 1;
+            } else {
+                state.isQuizCompleted = true;
+            }
         },
         incrementScore: (state) => {
             state.score += 1;
@@ -46,7 +48,6 @@ const quizSlice = createSlice({
 export const {
     setSelectedSubject,
     toggleTheme,
-    startQuiz,
     nextQuestion,
     incrementScore,
     completeQuiz,
