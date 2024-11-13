@@ -137,7 +137,7 @@ const AnswerOptions = ({ answers, onSubmit, correctAnswer, onNext }: AnswersOpti
     };
 
     return (
-        <Box w="100%" px={{ base: '1.2rem', md: '2rem', lg: '2.5rem' }}>
+        <Box w="100%" >
             <Grid gap="1rem" mb="6">
                 {answers.map((answer) => (
                     <Box
@@ -155,8 +155,8 @@ const AnswerOptions = ({ answers, onSubmit, correctAnswer, onNext }: AnswersOpti
                             border="3px solid"
                             {...getAnswerStyles(answer.letter)}
 
-                            py={{ base: "1.2rem", md: "1.4rem", lg: "1.6rem" }}
-                            px={{ base: "1.2rem", md: "1.6rem", lg: "2rem" }}
+                            py={{ base: "1rem", md: "1.2rem", lg: "1.2rem" }}
+                            px={{ base: "1rem", md: "1.2rem", lg: "1.2rem" }}
                             transition="all 0.2s ease-in-out"
                         >
                             <Flex align="center" gap={4}>
@@ -168,7 +168,7 @@ const AnswerOptions = ({ answers, onSubmit, correctAnswer, onNext }: AnswersOpti
                                 </Box>
 
                                 <Text
-                                    fontSize={{ base: "1.2rem", md: "1.4rem", lg: "1.6rem" }}
+                                    fontSize={{ base: "1.1rem", md: "1.3rem", lg: "1.5rem" }}
                                     fontWeight="500"
                                     color={colorMode === 'dark' ? 'white' : 'brand.gray.900'}
                                 >

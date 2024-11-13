@@ -1,6 +1,7 @@
 'use client'
 
-import QuestionScreen from '@/components/quiz/question-screen'
+import QuestionScreen from '@/components/quiz/question-screen/QuestionScreen'
+import ScoreScreen from '@/components/quiz/score-screen/ScoreScreen'
 import SubjectList from '@/components/quiz/SubjectList'
 import ThemeToggle from '@/components/theme/ThemeToggle'
 import { RootState } from '@/store'
@@ -14,7 +15,11 @@ export default function Home() {
   if (isQuizStarted && !isQuizCompleted) {
     return <QuestionScreen />
   }
-  
+
+  if (isQuizStarted && isQuizCompleted) { 
+  return <ScoreScreen/>
+  }
+
   return (
     <Box h="100vh"
       w="100%"

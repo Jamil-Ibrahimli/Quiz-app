@@ -1,5 +1,5 @@
 'use client'
-import { Box, Flex, Image, Text, Progress, useColorMode } from '@chakra-ui/react';
+import { Box, Flex, Image, Text,  useColorMode } from '@chakra-ui/react';
 import { QuizSubject } from '@/types/quiz';
 
 interface QuestionCardProps {
@@ -43,14 +43,7 @@ const QuestionCard = ({
             >
                 {question}
             </Text>
-            <Progress
-                value={(questionNumber / totalQuestions) * 100}
-                size="sm"
-                colorScheme="purple"
-                bg={colorMode === 'dark' ? 'gray.700' : 'gray.100'}
-                borderRadius="full"
-                
-            />
+          
         </Box>
     )
 }
