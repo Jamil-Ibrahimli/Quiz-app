@@ -37,16 +37,16 @@ const ScoreScreen = () => {
                 <Flex
                     direction={{ base: 'column', lg: 'row' }}
                     justify={{ base: 'flex-start', lg: 'space-between' }}
-                    gap={{ base: '2rem', lg: '8rem' }}
+                    gap={{ base: '2rem', lg: '4rem' }}
                     px={{ base: '1rem', md: '2rem', lg: 0 }}
                 >
                     {/* Left side - Title */}
-                    <Box maxW={{ lg: '45rem' }}>
+                    <Box maxW={{ lg: '100%' }} w={{base:'100%',lg:'30rem'}}>
                         <Text
                             fontSize={{ base: '2rem', md: '3rem', lg: '4rem' }}
                             fontWeight="300"
                             color={colorMode === 'dark' ? 'white' : 'gray.900'}
-                            mb={4}
+                            mb={3}
                         >
                             Quiz completed
                         </Text>
@@ -63,7 +63,8 @@ const ScoreScreen = () => {
                     <Flex 
                         direction="column" 
                         align="center"
-                        maxW={{ base: '100%', lg: '45rem' }}
+                        w={{base:'100%',md:'15rem',lg:'100%'}}
+                        maxW={{ base: '100%', lg: '34rem' }}
                     >
                         <Box
                             bg={colorMode === 'dark' ? 'gray.800' : 'white'}
@@ -115,7 +116,7 @@ const ScoreScreen = () => {
                             w="100%"
                             bg="brand.purple.500"
                             color="white"
-                            py={{ base: "1.2rem", md: "1.4rem", lg: "1.6rem" }}
+                            py={{ base: "1.2rem", md: "1.4rem", lg: "2rem" }}
                             fontSize={{ base: "1.2rem", md: "1.4rem", lg: "1.6rem" }}
                             _hover={{
                                 bg: "brand.purple.600"

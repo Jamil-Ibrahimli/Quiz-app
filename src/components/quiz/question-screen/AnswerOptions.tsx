@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import { Box, Button, Grid, Flex, Text, useColorMode } from '@chakra-ui/react';
 import { Answer, AnswerLetter } from '@/types/quiz';
 import { MdCheckCircle, MdCancel } from 'react-icons/md';
@@ -10,14 +10,20 @@ interface AnswersOptionsProps {
     onSubmit: (selectedAnswer: Answer['letter']) => void
     correctAnswer: AnswerLetter;
     onNext: () => void;
-
+    currentQuestion: number;
 }
 
-const AnswerOptions = ({ answers, onSubmit, correctAnswer, onNext }: AnswersOptionsProps) => {
+const AnswerOptions = ({ answers, onSubmit, correctAnswer, onNext,currentQuestion }: AnswersOptionsProps) => {
     const [selectedAnswer, setSelectedAnswer] = useState<Answer['letter'] | null>(null);
     const [isSubmitted, setIsSubmitted] = useState(false);
     const { colorMode } = useColorMode()
     const [showError, setShowError] = useState(false);
+
+    useEffect(() => {
+        setSelectedAnswer(null);
+        setIsSubmitted(false);
+        setShowError(false);
+    }, [currentQuestion]);
 
     const getLetterStyles = (letter: AnswerLetter) => {
         const baseStyles = {

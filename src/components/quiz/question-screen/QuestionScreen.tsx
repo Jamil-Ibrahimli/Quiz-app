@@ -1,10 +1,10 @@
 'use client';
-import { Box, Container, Spinner, Text, Flex, Progress, useColorMode } from '@chakra-ui/react';
+import { Box, Container, Spinner, Text, Flex, Progress, useColorMode, Button } from '@chakra-ui/react';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '@/store';
 import { useGetQuestionsBySubjectQuery } from '@/store/api/quizApi';
 import AnswerOptions from './AnswerOptions';
-import { nextQuestion, incrementScore, completeQuiz } from '@/store/slices/quizSlice';
+import { nextQuestion, incrementScore, completeQuiz, resetQuiz } from '@/store/slices/quizSlice';
 
 const QuestionScreen = () => {
     const dispatch = useDispatch();
@@ -21,21 +21,23 @@ const QuestionScreen = () => {
     } = useGetQuestionsBySubjectQuery(selectedSubject!, {
         skip: !selectedSubject
     });
-    
+
     if (isLoading || isFetching) {
         return (
             <Box display="flex" justifyContent="center" alignItems="center" minH="100vh">
-                <Spinner size="xxl" color="brand.purple.500" />
+                <Spinner size="xl" color="brand.purple.500" />
             </Box>
         );
     }
 
     if (error || !questions || questions.length === 0) {
         return (
-            <Box display="flex" justifyContent="center" alignItems="center">
-                <Text color="brand.red">
+            <Box display="flex" justifyContent="center"
+                alignItems="center" gap='1rem' h='100vh' flexDirection="column">
+                <Text color="brand.red" >
                     {error ? 'Failed to load questions. Please try again.' : 'No questions available for this subject.'}
                 </Text>
+                <Button onClick={() => dispatch(resetQuiz())} bg="purple.500">Home</Button>
             </Box>
         );
     }
@@ -127,6 +129,7 @@ const QuestionScreen = () => {
                             correctAnswer={currentQuestionData.correctAnswer}
                             onSubmit={handleSubmitAnswer}
                             onNext={handleNextQuestion}
+                            currentQuestion={currentQuestion} 
                         />
                     </Box>
                 </Flex>
