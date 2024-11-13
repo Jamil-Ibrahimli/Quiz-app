@@ -1,4 +1,4 @@
-import Providers from "@/components/Providers";
+import Providers from "@/components/providers/Providers";
 import { rubik } from '../fonts';
 import React from 'react'
 import Header from "@/components/layout/Header";
@@ -9,7 +9,7 @@ const RootLayout = ({
     <html lang="en" className={rubik.variable}>
       <body >
         <Providers>
-          <Header/>
+          <Header />
           {children}
         </Providers>
       </body>

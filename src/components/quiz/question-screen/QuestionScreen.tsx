@@ -1,10 +1,11 @@
 'use client';
 import { Box, Container, Spinner, Text, Flex, Progress, useColorMode, Button } from '@chakra-ui/react';
 import { useSelector, useDispatch } from 'react-redux';
-import { RootState } from '@/store';
+import { RootState } from '@/store/store';
 import { useGetQuestionsBySubjectQuery } from '@/store/api/quizApi';
 import AnswerOptions from './AnswerOptions';
 import { nextQuestion, incrementScore, completeQuiz, resetQuiz } from '@/store/slices/quizSlice';
+import { LoadingSpinner } from '@/components/common/LoadingSpinner';
 
 const QuestionScreen = () => {
     const dispatch = useDispatch();
@@ -24,9 +25,8 @@ const QuestionScreen = () => {
 
     if (isLoading || isFetching) {
         return (
-            <Box display="flex" justifyContent="center" alignItems="center" minH="100vh">
-                <Spinner size="xl" color="brand.purple.500" />
-            </Box>
+           <LoadingSpinner/>
+          
         );
     }
 
@@ -129,7 +129,7 @@ const QuestionScreen = () => {
                             correctAnswer={currentQuestionData.correctAnswer}
                             onSubmit={handleSubmitAnswer}
                             onNext={handleNextQuestion}
-                            currentQuestion={currentQuestion} 
+                            currentQuestion={currentQuestion}
                         />
                     </Box>
                 </Flex>

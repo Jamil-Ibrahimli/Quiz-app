@@ -4,7 +4,7 @@ import QuestionScreen from '@/components/quiz/question-screen/QuestionScreen'
 import ScoreScreen from '@/components/quiz/score-screen/ScoreScreen'
 import SubjectList from '@/components/quiz/SubjectList'
 import ThemeToggle from '@/components/theme/ThemeToggle'
-import { RootState } from '@/store'
+import { RootState } from '@/store/store'
 import { Box, Heading, Container, Text, Flex, useColorMode } from '@chakra-ui/react'
 import { useSelector } from 'react-redux'
 
@@ -16,8 +16,8 @@ export default function Home() {
     return <QuestionScreen />
   }
 
-  if (isQuizStarted && isQuizCompleted) { 
-  return <ScoreScreen/>
+  if (isQuizStarted && isQuizCompleted) {
+    return <ScoreScreen />
   }
 
   return (

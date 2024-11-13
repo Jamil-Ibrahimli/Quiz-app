@@ -5,6 +5,7 @@ import { Box, Button, Grid, Flex, Text, useColorMode } from '@chakra-ui/react';
 import { Answer, AnswerLetter } from '@/types/quiz';
 import { MdCheckCircle, MdCancel } from 'react-icons/md';
 
+
 interface AnswersOptionsProps {
     answers: Answer[];
     onSubmit: (selectedAnswer: Answer['letter']) => void
@@ -77,7 +78,7 @@ const AnswerOptions = ({ answers, onSubmit, correctAnswer, onNext,currentQuestio
             bg: colorMode === 'dark' ? 'gray.700' : 'white',
             borderColor: 'transparent',
             _hover: !isSubmitted ? {
-                '.letter-box': {
+                '& > div:first-of-type > div:first-of-type': {
                     bg: 'brand.purple.600',
                     color: 'white',
                 }
@@ -90,7 +91,7 @@ const AnswerOptions = ({ answers, onSubmit, correctAnswer, onNext,currentQuestio
                     ...baseStyles,
                     borderColor: 'brand.purple.500',
                     _hover: {
-                        '.letter-box': {
+                        '& > div:first-of-type > div:first-of-type': {
                             bg: 'brand.purple.500',
                             color: 'white',
                         }
@@ -168,7 +169,7 @@ const AnswerOptions = ({ answers, onSubmit, correctAnswer, onNext,currentQuestio
                             <Flex align="center" gap={4}>
                                 <Box
                                     {...getLetterStyles(answer.letter)}
-                                    className="letter-box"
+                                  
                                 >
                                     {answer.letter}
                                 </Box>

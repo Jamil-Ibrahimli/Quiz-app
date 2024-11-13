@@ -1,7 +1,7 @@
 'use client';
 import { Box, Container, Flex, Text, Button, Image, useColorMode } from '@chakra-ui/react';
 import { useSelector, useDispatch } from 'react-redux';
-import { RootState } from '@/store';
+import { RootState } from '@/store/store';
 import { resetQuiz } from '@/store/slices/quizSlice';
 
 const ScoreScreen = () => {
@@ -41,7 +41,7 @@ const ScoreScreen = () => {
                     px={{ base: '1rem', md: '2rem', lg: 0 }}
                 >
                     {/* Left side - Title */}
-                    <Box maxW={{ lg: '100%' }} w={{base:'100%',lg:'30rem'}}>
+                    <Box maxW={{ lg: '100%' }} w={{ base: '100%', lg: '30rem' }}>
                         <Text
                             fontSize={{ base: '2rem', md: '3rem', lg: '4rem' }}
                             fontWeight="300"
@@ -60,10 +60,10 @@ const ScoreScreen = () => {
                     </Box>
 
                     {/* Right side - Score Card */}
-                    <Flex 
-                        direction="column" 
+                    <Flex
+                        direction="column"
                         align="center"
-                        w={{base:'100%',md:'15rem',lg:'100%'}}
+                        w={{ base: '100%', md: '15rem', lg: '100%' }}
                         maxW={{ base: '100%', lg: '34rem' }}
                     >
                         <Box

@@ -1,7 +1,7 @@
 'use client'
 import { Box, Flex, Container, Image, Text, useColorMode } from '@chakra-ui/react';
 import { useSelector } from 'react-redux';
-import { RootState } from '@/store';
+import { RootState } from '@/store/store';
 import ThemeToggle from '../theme/ThemeToggle';
 import { QuizSubject } from '@/types/quiz';
 

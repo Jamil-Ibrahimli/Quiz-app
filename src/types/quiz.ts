@@ -9,6 +9,7 @@ export interface QuizState {
     score: number;
     isQuizStarted: boolean;
     isQuizCompleted: boolean;
+ 
 
 }
 
