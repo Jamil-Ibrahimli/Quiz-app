@@ -1,0 +1,47 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+  
+  html,
+  body {
+    max-width: 100vw;
+    overflow-x: hidden;
+    height: 100%;
+  }
+  
+  
+  :focus {
+    outline: none;
+  }
+  
+  :focus-visible {
+    outline: 2px solid #A729F5;
+    outline-offset: 2px;
+  }
+  
+  button {
+    cursor: pointer;
+    border: none;
+    background: none;
+  }
+  
+  
+  ul, ol {
+    list-style: none;
+  }
+  
+
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  

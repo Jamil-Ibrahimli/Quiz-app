@@ -2,6 +2,8 @@ import Providers from "@/components/providers/Providers";
 import { rubik } from '../fonts';
 import React from 'react'
 import Header from "@/components/layout/Header";
+import './globals.css'
+
 const RootLayout = ({
   children,
 }: { children: React.ReactNode }) => {

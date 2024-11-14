@@ -1,8 +1,7 @@
 'use client';
 import { Image, Grid } from '@chakra-ui/react';
 import SubjectCard from './SubjectCard';
-import { useDispatch, useSelector } from 'react-redux';
-import { setSelectedSubject } from '@/store/slices/quizSlice';
+import { useSelector } from 'react-redux';
 import { RootState } from '@/store/store';
 import { QuizSubject } from '@/types/quiz';
 

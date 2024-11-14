@@ -21,7 +21,7 @@ const Header = () => {
     };
     return (
 
-        <Box position='fixed' w='100%' zIndex={10} >
+        <Box position='fixed' w='100%' zIndex={10}  px={{ base: '0', md: '3rem', lg: '1rem' }}>
             <Container
                 display='flex'
                 pt={{ base: '1.6rem', md: '2rem' }}

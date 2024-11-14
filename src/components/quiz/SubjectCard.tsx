@@ -31,9 +31,8 @@ const SubjectCard = ({ subject, icon, isSelected }: SubjectCardProps) => {
                 align="center"
                 borderRadius={{ base: "0.8rem", sm: "1rem", md: "1.2rem", lg: "1.4rem", xl: "1.2rem" }}
                 boxShadow="0px 4px 18px rgba(0, 0, 0, 0.2)"
-
                 _hover={{
-                    boxShadow: "0px 4px 18px rgba(150, 75, 204, 0.58)",
+                    boxShadow: "0px 4px 18px rgba(155, 68, 218, 0.69)",
                     transform: "translateY(-3px)"
                 }}
                 w={{
@@ -50,17 +49,17 @@ const SubjectCard = ({ subject, icon, isSelected }: SubjectCardProps) => {
                     lg: "100%"
                 }}
                 py={{
-                    base: "1.2rem",
-                    sm: "1.3rem",
-                    md: "1.4rem",
-                    lg: "1.4rem",
-                    xl: "1.4rem"
+                    base: "1rem",
+                    sm: "1.2rem",
+                    md: "1.2rem",
+                    lg: "1.2rem",
+                    xl: "1.2rem"
                 }}
                 px={{
                     base: "1.2rem",
                     sm: "1.3rem",
                     md: "1.4rem",
-                    lg: "1.6rem",
+                    lg: "1.5rem",
                     xl: "1.6rem"
                 }}
                 gap={{

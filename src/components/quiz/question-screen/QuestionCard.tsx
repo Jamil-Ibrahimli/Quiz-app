@@ -1,6 +1,5 @@
 'use client'
-import { Box, Flex, Image, Text,  useColorMode } from '@chakra-ui/react';
-import { QuizSubject } from '@/types/quiz';
+import { Box,  Text,  useColorMode } from '@chakra-ui/react';
 
 interface QuestionCardProps {
     questionNumber: number;
@@ -13,19 +12,11 @@ const QuestionCard = ({
     question,
 }: QuestionCardProps) => {
     const { colorMode } = useColorMode()
-    const getSubjectIcon = (subject: QuizSubject) => {
-        const icons = {
-            HTML: '/icons/html-icon.png',
-            CSS: '/icons/css-icon.png',
-            JavaScript: '/icons/javascript-icon.png',
-            Accessibility: '/icons/accessibility-icon.png'
-        };
-        return icons[subject];
-    };
+   
     return (
         <Box
             w='100%'
-            mb={8}
+            mb={1}
             px={{ base: '1.2rem', md: '2rem', lg: '2.5rem' }}
         >
             <Text color="gray.500"

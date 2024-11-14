@@ -1,27 +1,43 @@
 'use client'
+import { Box, useColorMode, Image } from '@chakra-ui/react';
+import { useSelector } from 'react-redux';
+import { RootState } from '@/store/store';
+import QuestionScreen from '@/components/quiz/question-screen/QuestionScreen';
+import ScoreScreen from '@/components/quiz/score-screen/ScoreScreen';
+import WelcomeScreen from '@/components/quiz/welcome-screen/WelcomeScreen';
+import { SlideAnimation } from '@/components/animations/SlideAnimation';
 
-import QuestionScreen from '@/components/quiz/question-screen/QuestionScreen'
-import ScoreScreen from '@/components/quiz/score-screen/ScoreScreen'
-import SubjectList from '@/components/quiz/SubjectList'
-import ThemeToggle from '@/components/theme/ThemeToggle'
-import { RootState } from '@/store/store'
-import { Box, Heading, Container, Text, Flex, useColorMode } from '@chakra-ui/react'
-import { useSelector } from 'react-redux'
+const Home = () => {
+  const { colorMode } = useColorMode();
+  const { isQuizCompleted, isQuizStarted } = useSelector(
+    (state: RootState) => state.quizReducer
+  );
 
-export default function Home() {
-  const { colorMode, toggleColorMode } = useColorMode()
-  const { isQuizCompleted, isQuizStarted } = useSelector((state: RootState) => state.quizReducer)
+  const getCurrentScreen = () => {
+    if (isQuizStarted && !isQuizCompleted) {
+      return {
+        component: <QuestionScreen />,
+        id: 'quiz'
+      };
+    }
+    if (isQuizStarted && isQuizCompleted) {
+      return {
+        component: <ScoreScreen />,
+        id: 'quiz'
+      };
+    }
+    return {
+      component: <WelcomeScreen />,
+      id: 'welcome'
+    };
+  };
 
-  if (isQuizStarted && !isQuizCompleted) {
-    return <QuestionScreen />
-  }
-
-  if (isQuizStarted && isQuizCompleted) {
-    return <ScoreScreen />
-  }
+  const currentScreen = getCurrentScreen();
 
   return (
-    <Box h="100vh"
+    <Box
+      minH='100vh'
+      h="100vh"
       w="100%"
       position="relative"
       bg={colorMode === 'dark' ? 'gray.900' : 'gray.100'}
@@ -29,65 +45,45 @@ export default function Home() {
       transition="all 0.3s ease-in-out"
     >
 
-      <Container w={{ base: '100%', md: '100%', lg: '72.5rem' }}
-        maxW={{ base: '100%', md: '100%', lg: '100%', xl: '100%' }}
-        position='relative'
-        border='0.1px solid transparent'
+      <Image
+        src='/Ellipse 8.png'
+        alt="Circle Background 1"
+        position="absolute"
+        top={0}
+        left={0}
+        width="400px"
+        opacity="0.1"
+        display={{ base: 'none', md: 'block', lg: 'block' }} // Hiden on mobile
+      />
 
-      >
+      <Image
+        src='/Ellipse 9.png'
+        alt="Circle Background 2"
+        position="absolute"
+        bottom={0}
+        right={0}
+        width="500px"
+        opacity="0.1"
+        display={{ base: 'none', md: 'none', lg: 'block' }} // Only desktop
+      />
+      <Image
+        src='/Ellipse 8  mobile-dark.png'
+        alt="Mobile Background Light"
+        position="absolute"
+        top={0}
+        left={0}
+        w="100%"
+        h="100%"
+        objectFit="cover"
+        opacity="0.1"
+        display={{ base: 'block', md: 'none', lg: "none" }}  // Only on mobile
+      />
 
-        <Flex
-          direction={{ base: 'column', lg: 'row' }}
-          justify={{ base: 'left', md: 'left', lg: 'space-between' }}
-          align={{ base: 'left', lg: 'flex-start' }}
-          gap={{ base: '1rem', md: '2.5rem', lg: '3rem', xl: '5rem' }}
-          mt={{ base: '6rem', md: '8rem', lg: '10rem' }}
-
-        >
-          {/* left side text */}
-          <Box maxW={{ base: '100%', md: '100%', lg: '31.25rem' }}
-            textAlign={{ base: 'left', lg: 'left' }}
-
-          >
-            <Heading
-              fontSize={{ base: '1.5rem', md: '2.5rem', lg: '4rem' }}
-              color={colorMode === 'dark' ? '#FFFFFF' : 'gray.900'}
-              fontWeight="300"
-              w={{ base: '100%', md: '100%', lg: '100%' }}
-              mb={{ base: '1rem', md: '1.5rem', lg: '2rem' }}
-              lineHeight={{ base: '1rem', md: '3rem', lg: '4rem' }}
-
-            >
-              Welcome to the
-            </Heading>
-            <Heading
-              fontSize={{ base: '1.5rem', md: '2.5rem', lg: '4rem' }}
-              color={colorMode === 'dark' ? '#FFFFFF' : 'gray.900'}
-              fontWeight="500"
-              w={{ base: 'auto', md: 'auto', lg: '29rem' }}
-              lineHeight={{ base: '1rem', md: '3rem', lg: '4rem' }}
-            >
-              Frontend Quiz!
-            </Heading>
-            <Text
-              color="gray.500"
-              fontSize={{ base: '0.875rem', md: '1rem', lg: '1.2rem' }}
-              fontStyle="italic"
-              fontWeight={400}
-              mt={{ base: '1.5rem', md: '2rem', lg: '3rem' }}
-            >
-              Pick a subject to get started
-            </Text>
-          </Box>
-          {/* right side subjects */}
-          <Box w={{ base: "100%", md: '100%', lg: '100%', xl: '100%' }}
-            mx={{ base: 'auto', lg: '0' }}
-          >
-            <SubjectList />
-          </Box>
-        </Flex>
-      </Container>
-
+      <SlideAnimation id={currentScreen.id}>
+        {currentScreen.component}
+      </SlideAnimation>
     </Box>
-  )
-}
+  );
+};
+
+export default Home;

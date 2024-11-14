@@ -145,9 +145,9 @@ const AnswerOptions = ({ answers, onSubmit, correctAnswer, onNext,currentQuestio
 
     return (
         <Box w="100%" >
-            <Grid gap="1rem" mb="6">
+            <Grid gap="1rem" mb="6" >
                 {answers.map((answer) => (
-                    <Box
+                    <Box zIndex={1}
                         key={answer.letter}
                         as="button"
                         w="100%"
@@ -162,8 +162,8 @@ const AnswerOptions = ({ answers, onSubmit, correctAnswer, onNext,currentQuestio
                             border="3px solid"
                             {...getAnswerStyles(answer.letter)}
 
-                            py={{ base: "1rem", md: "1.2rem", lg: "1.2rem" }}
-                            px={{ base: "1rem", md: "1.2rem", lg: "1.2rem" }}
+                            py={{ base: "0.5rem", md: "0.8rem", lg: "0.8rem" }}
+                            px={{ base: "0.5rem", md: "0.8rem", lg: "0.8rem" }}
                             transition="all 0.2s ease-in-out"
                         >
                             <Flex align="center" gap={4}>
@@ -175,7 +175,7 @@ const AnswerOptions = ({ answers, onSubmit, correctAnswer, onNext,currentQuestio
                                 </Box>
 
                                 <Text
-                                    fontSize={{ base: "1.1rem", md: "1.3rem", lg: "1.5rem" }}
+                                    fontSize={{ base: "0.8rem", md: "1.2rem", lg: "1.2rem" }}
                                     fontWeight="500"
                                     color={colorMode === 'dark' ? 'white' : 'brand.gray.900'}
                                 >
@@ -203,8 +203,8 @@ const AnswerOptions = ({ answers, onSubmit, correctAnswer, onNext,currentQuestio
                 bg="brand.purple.500"
                 color="white"
                 borderRadius={{ base: '5px', md: '10px', lg: '15px' }}
-                py={{ base: "1.2rem", md: "1.4rem", lg: "2.6rem" }}
-                fontSize={{ base: "1.2rem", md: "1.4rem", lg: "1.6rem" }}
+                py={{ base: "1.2rem", md: "1.4rem", lg: "2rem" }}
+                fontSize={{ base: "1.2rem", md: "1.4rem", lg: "1.5rem" }}
                 _hover={{
                     bg: "brand.purple.600"
                 }}
