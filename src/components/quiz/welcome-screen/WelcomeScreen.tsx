@@ -1,13 +1,13 @@
 'use client';
 import { Box, Heading, Container, Text, Flex, useColorMode } from '@chakra-ui/react';
-import SubjectList from '../SubjectList';
+import SubjectList from './SubjectList';
 
 export const WelcomeScreen = () => {
     const { colorMode } = useColorMode();
 
     return (
         <Box
-           
+
         >
             <Container
                 w={{ base: '100%', md: '100%', lg: '72.5rem' }}
