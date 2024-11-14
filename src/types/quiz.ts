@@ -13,7 +13,7 @@ export interface QuizState {
 
 }
 
-export type AnswerLetter = 'A' | 'B' | 'C' | 'D';
+export type AnswerLetter = string;
 
 export interface Answer {
     letter: AnswerLetter;
